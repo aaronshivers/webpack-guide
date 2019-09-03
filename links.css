@@ -1,0 +1,31 @@
+body {
+  background-color: whitesmoke;
+  color: crimson;
+  font-family: serif;
+}
+
+a {
+  color: crimson;
+}
+
+button {
+  color: white;
+  background-color: crimson;
+  padding: 1rem;
+  border: none;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+button:hover {
+  background-color: tomato;
+}
+
+button:hover,
+button:focus {
+  outline: none;
+}
+
+.blue {
+  color: steelblue;
+}

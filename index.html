@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>webpack 5 min demo</title>
+  <link rel="stylesheet" href="./styles/normalize.css">
+  <link rel="stylesheet" type="text/css" href="./styles/prism.css">
+  <link rel="stylesheet" type="text/css" href="./styles/main.css">
+</head>
+<body>
+
+  <!-- start: container -->
+  <div class="container">
+
+    <!-- start: nav -->
+    <nav>
+      <ul>
+        <li><a href="index.html">index</a></li>
+        <li><a href="links.html">links</a></li>
+      </ul>
+    </nav>
+    
+    <!-- start: header -->
+    <header>
+      <h1>Webpack 5 min Demo</h1>
+    </header>
+
+    <!-- start: main -->
+    <main>
+
+      <section>
+        <h2>Why Webpack?</h2>
+        <p>Webpack is a tool that takes a project containing multiple files, and bundles it into one condensed package.</p>
+        <p>This makes it easy to work on our project, and doesn't bog down the browser by sending it too many files at once.</p>
+      </section>
+
+      <section>
+        <h3>create project directory</h3>
+        <div class="code-block">
+          <pre>
+            <code class="language-bash">
+              mkdir webpack-demo
+            </code>
+          </pre>
+        </div>
+
+        <h3>move into project directory</h3>
+        <div class="code-block">
+          <pre>
+            <code class="language-bash">
+              cd webpack-demo
+            </code>
+          </pre>
+        </div>
+
+        <h3>Initialize NPM</h3>
+        <div class="code-block">
+          <pre class="language-bash">
+            <code>npm init -y</code>
+          </pre>
+        </div>
+
+        <h3>install webpack</h3>
+        <div class="code-block">
+          <pre class="language-bash">
+            <code>npm i -D webpack webpack-cli</code>
+          </pre>
+        </div>
+
+        <h3>create project files</h3>
+        <div class="code-block">
+          <pre class="language-bash">
+            <code>touch index.html index.js main.css</code>
+          </pre>
+        </div>
+
+        <h3>populate html file</h3>
+        <div class="code-block">
+          <pre class="language-html">
+            <code><!-- <!DOCTYPE html>
+            <html lang="en">
+            <head>
+              <meta charset="utf-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1">
+              <title>webpack demo</title>
+            </head>
+            <body>
+              <h1>webpack demo</h1>
+              <script src="./index.js"></script>
+            </body>
+            </html>
+          --><code></pre>
+        </div>
+      </section>
+
+          <article>
+            <h3>test</h3>
+            <div class="code-block">
+              <pre>
+                <code class="language-js">
+                  const body = document.querySelector('body')
+                  const links = document.querySelector('a')
+                  const button = document.querySelector('button')
+                  
+                  button.addEventListener('click', () => {
+                    body.classList.toggle('blue')
+                    links.classList.toggle('blue')
+                  })
+                </code>
+              </pre>
+            </div>
+
+          </article>
+
+
+
+          <h3>Create Project Directories</h3>
+      </section>
+    </main>
+
+  </div>
+    
+
+  <script src="./node_modules/microlight/microlight.js"></script>
+  <script>
+    // microlight.reset()
+
+  </script>
+  <script src="./scripts/prism.js"></script>
+  <!-- <script src="./index.js"></script>   -->
+</body>
+</html>
