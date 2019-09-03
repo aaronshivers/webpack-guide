@@ -84,6 +84,16 @@
       </section>
 
       <section>
+        <h3>Install HTML Webpack Plugin</h3>
+        <p>This will include our HTML file in the bundle</p>
+        <div class="code-block">
+          <pre class="language-bash">
+            <code>npm i -D html-webpack-plugin</code>
+          </pre>
+        </div>
+      </section>
+
+      <section>
         <h3>Install CSS and Style Loaders</h3>
         <p>We have to include two loaders to get our css included in the bundle</p>
         <div class="code-block">
@@ -94,18 +104,9 @@
       </section>
 
       <section>
-        <h3>Install HTML Webpack Plugin</h3>
-        <p>This will let us create a *********************</p>
-        <div class="code-block">
-          <pre class="language-bash">
-            <code>npm i -D html-webpack-plugin</code>
-          </pre>
-        </div>
-      </section>
-
-      <section>
         <h3>configure webpack</h3>
-        <p>Start by creating the webpack config file, then add the CSS and Style loaders.</p>
+        <p>Start by creating the webpack config file.</p>
+        <p>Now, add the HTML plugin, then add the CSS and Style loaders.</p>
         <div class="code-block">
           <pre class="language-bash">
             <code>touch webpack.config.js</code>
@@ -117,7 +118,6 @@
               const HtmlWebpackPlugin = require('html-webpack-plugin')
               
               module.exports = {
-                mode: 'development',
                 module: {
                   rules: [
                     {
@@ -150,16 +150,6 @@
       </section>
 
       <section>
-        <h3>open text editor</h3>
-        <p>Open your text editor. I'm using SublimeText, so I'll open it like this...</p>
-        <div class="code-block">
-          <pre class="language-bash">
-            <code>subl .</code>
-          </pre>
-        </div>
-      </section>
-
-      <section>
         <h3>populate index.html</h3>
         <p>This is an html document with links to our JavaScript and CSS files.</p>
         <p>It also has a button that we'll use to test our project.</p>
@@ -172,12 +162,10 @@
               <meta charset="utf-8">
               <meta name="viewport" content="width=device-width, initial-scale=1">
               <title>webpack demo</title>
-              <link rel="stylesheet" type="text/css" href="./index.css">
             </head>
             <body>
               <h1>webpack demo</h1>
-              <button class="blue">click me!</button>
-              <script src="./index.js"></script>
+              <button>click me!</button>
             </body>
             </html>
             --></code>
@@ -266,17 +254,34 @@
         <p>If it opens, and the button works, then move on.</p>
       </section>
 
+      <section>
+        <h3>Run Webpack</h3>
+        <p>It's time to build.</p>
+        <p>Run this command and it will create a new folder in your project directory called 'dist'.</p>
+        <div class="code-block">
+          <pre class="language-bash">
+            <code>npx webpack</code>
+          </pre>
+        </div>
+      </section>
+
+      <section>
+        <h3>Open New Files</h3>
+        <p>You can now open the new files in the 'dist' folder.</p>
+        <p>Maybe with live-server, or just open index.html in the browser.</p>
+        <div class="code-block">
+          <pre class="language-bash">
+            <code>live-server dist</code>
+          </pre>
+        </div>
+      </section>
+
     </main>
 
   </div>
     
 
   <script src="./node_modules/microlight/microlight.js"></script>
-  <script>
-    // microlight.reset()
-
-  </script>
   <script src="./scripts/prism.js"></script>
-  <!-- <script src="./index.js"></script>   -->
 </body>
 </html>
