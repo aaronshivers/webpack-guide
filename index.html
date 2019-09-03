@@ -36,15 +36,25 @@
       </section>
 
       <section>
-        <h3>create project directory</h3>
+        <h2>Before We Start</h2>
+        <p>I'm using Ubuntu, and the commands I use may be different on your operating system.
+        <p>You will need Node.js, so <a href="https://nodejs.org/en/download/">follow these instructions</a> if you haven't already installed it.</p>
+      </section>
+
+      <section>
+        <h2>Let's Get Started</h2>
+        <h3>create project directories</h3>
+        <p>Create the directories for our project.</p>
         <div class="code-block">
           <pre>
             <code class="language-bash">
-              mkdir webpack-demo
+              mkdir webpack-demo webpack-demo/src
             </code>
           </pre>
         </div>
+      </section>
 
+      <section>
         <h3>move into project directory</h3>
         <div class="code-block">
           <pre>
@@ -53,29 +63,107 @@
             </code>
           </pre>
         </div>
+      </section>
 
+      <section>
         <h3>Initialize NPM</h3>
         <div class="code-block">
           <pre class="language-bash">
             <code>npm init -y</code>
           </pre>
         </div>
+      </section>
 
+      <section>
         <h3>install webpack</h3>
         <div class="code-block">
           <pre class="language-bash">
             <code>npm i -D webpack webpack-cli</code>
           </pre>
         </div>
+      </section>
 
+      <section>
+        <h3>Install CSS and Style Loaders</h3>
+        <p>We have to include two loaders to get our css included in the bundle</p>
+        <div class="code-block">
+          <pre class="language-bash">
+            <code>npm i -D style-loader css-loader</code>
+          </pre>
+        </div>
+      </section>
+
+      <section>
+        <h3>Install HTML Webpack Plugin</h3>
+        <p>This will let us create a *********************</p>
+        <div class="code-block">
+          <pre class="language-bash">
+            <code>npm i -D html-webpack-plugin</code>
+          </pre>
+        </div>
+      </section>
+
+      <section>
+        <h3>configure webpack</h3>
+        <p>Start by creating the webpack config file, then add the CSS and Style loaders.</p>
+        <div class="code-block">
+          <pre class="language-bash">
+            <code>touch webpack.config.js</code>
+          </pre>
+        </div>
+        <div class="code-block">
+          <pre class="language-js">
+            <code>
+              const HtmlWebpackPlugin = require('html-webpack-plugin')
+              
+              module.exports = {
+                mode: 'development',
+                module: {
+                  rules: [
+                    {
+                      test: /\.css$/,
+                      use: [
+                        'style-loader',
+                        'css-loader'
+                      ]
+                    }
+                  ]
+                },
+                plugins: [
+                  new HtmlWebpackPlugin({
+                    template: './src/index.html'
+                  })
+                ]
+              }
+            </code>
+          </pre>
+        </div>
+      </section>
+
+      <section>
         <h3>create project files</h3>
         <div class="code-block">
           <pre class="language-bash">
-            <code>touch index.html index.js main.css</code>
+            <code>touch src/index.html src/index.js src/index.css</code>
           </pre>
         </div>
+      </section>
 
-        <h3>populate html file</h3>
+      <section>
+        <h3>open text editor</h3>
+        <p>Open your text editor. I'm using SublimeText, so I'll open it like this...</p>
+        <div class="code-block">
+          <pre class="language-bash">
+            <code>subl .</code>
+          </pre>
+        </div>
+      </section>
+
+      <section>
+        <h3>populate index.html</h3>
+        <p>This is an html document with links to our JavaScript and CSS files.</p>
+        <p>It also has a button that we'll use to test our project.</p>
+        <p>Put this stuff in index.html</p>
         <div class="code-block">
           <pre class="language-html">
             <code><!-- <!DOCTYPE html>
@@ -84,39 +172,100 @@
               <meta charset="utf-8">
               <meta name="viewport" content="width=device-width, initial-scale=1">
               <title>webpack demo</title>
+              <link rel="stylesheet" type="text/css" href="./index.css">
             </head>
             <body>
               <h1>webpack demo</h1>
+              <button class="blue">click me!</button>
               <script src="./index.js"></script>
             </body>
             </html>
-          --><code></pre>
+            --></code>
+          </pre>
         </div>
       </section>
 
-          <article>
-            <h3>test</h3>
-            <div class="code-block">
-              <pre>
-                <code class="language-js">
-                  const body = document.querySelector('body')
-                  const links = document.querySelector('a')
-                  const button = document.querySelector('button')
-                  
-                  button.addEventListener('click', () => {
-                    body.classList.toggle('blue')
-                    links.classList.toggle('blue')
-                  })
-                </code>
-              </pre>
-            </div>
+      <section>
+        <h3>populate index.js</h3>
+        <p>Our JavaScript File will be used to toggle the class name we put on our button.</p>
+        <p>another paragraph</p>
+        <div class="code-block">
+          <pre>
+            <code class="language-js">
+              import './index.css'
 
-          </article>
+              const button = document.querySelector('button')
 
+              let isColorNormal = true
 
+              button.addEventListener('click', e => {
+                if (isColorNormal) {
+                  e.target.classList.add('alternate-color')
+                } else {
+                  e.target.classList.remove('alternate-color')
+                }
 
-          <h3>Create Project Directories</h3>
+                isColorNormal = !isColorNormal
+              })
+            </code>
+          </pre>
+        </div>
       </section>
+
+      <section>
+        <h3>populate index.css</h3>
+        <p>Here are the styles we need for our CSS file.</p>
+        <div class="code-block">
+          <pre>
+            <code class="language-css">
+              :root {
+                --primary-color: crimson;
+                --secondary-color: lime;
+                --dark-color: #012;
+                --light-color: ghostwhite;
+              }
+
+              html {
+                font-size: 120%;
+              }
+
+              body {
+                font-family: monospace;
+                color: var(--dark-color);
+                background-color: var(--light-color);
+                text-align: center;
+              }
+
+              button {
+                font-size: 1rem;
+                font-weight: bold;
+                background-color: var(--primary-color);
+                padding: 1rem;
+                border: none;
+                color: var(--dark-color);
+                outline: none;
+                cursor: pointer;
+              }
+
+              button:hover {
+                opacity: 0.6;
+              }
+
+              .alternate-color {
+                background-color: var(--secondary-color);
+                color: var(--light-color);
+              }
+            </code>
+          </pre>
+        </div>
+      </section>
+
+      <section>
+        <h3>Test index.html</h3>
+        <p>At this point, it might be a good idea to open index.html in your browser. Just to see if it works now, before we use Webpack.</p>
+        <p>If it opens, and the button works, then move on.</p>
+      </section>
+
     </main>
 
   </div>

@@ -27,8 +27,5 @@ a:hover {
 }
 
 .code-block {
-  /*border: 1px solid var(--black);*/
   margin: 1rem;
-  /*width: 100%;*/
-  /*white-space: normal;*/
 }

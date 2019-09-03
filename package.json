@@ -9,5 +9,6 @@
   "keywords": [],
   "author": "aaron shivers",
   "license": "GPL-3.0",
-  "dependencies": {}
+  "dependencies": {},
+  "devDependencies": {}
 }
